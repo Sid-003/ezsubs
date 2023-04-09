@@ -9,7 +9,7 @@
     "48": "assets/icons/favicon-48.png",
     "128": "assets/icons/favicon-128.png"
   },
-  "web_accessible_resources": ["assets/subtitles/*.vtt"],
+
   "description": "Automatically add japanese subs to popular online anime subs",
   "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
   "short_name": "EzSubs",
