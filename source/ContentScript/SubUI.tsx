@@ -75,7 +75,8 @@ const styles: {[key: string]: React.CSSProperties} = {
     pointerEvents: 'none',
   },
   subtitleContainer: {
-    alignSelf: 'flex-end', 
+    alignSelf: 'flex-end',
+    flexDirection: 'column', 
     marginBottom: '8%',
     pointerEvents: 'auto', 
   },

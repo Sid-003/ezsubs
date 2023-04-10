@@ -27,11 +27,13 @@
 }
 
 #subtext {
-  background: rgb(0, 0, 0, 0.2);
+  background: rgb(0, 0, 0, 0.7);
   color: white;
   font-size: 30px;
   user-select: text !important;
   font-family: 'Noto Sans JP', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 #mainContainer {
