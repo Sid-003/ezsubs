@@ -5,14 +5,18 @@ import SubUI from './SubUI';
 import { browser } from 'webextension-polyfill-ts';
 import { getSubtitle } from '../helpers/converter';
 
-const createTrackElement = async () => {
-    let track = document.createElement('track');
-    track.id = 'custom-subs';
-    track.src = URL.createObjectURL(await getSubtitle('https://www.kitsunekko.net/subtitles/japanese/Banana%20Fish/[Kamigami]%20Banana%20Fish%20-%2001%20[1080p%20x265%20Ma10p%20AAC].ass'));
-    track.kind = 'subtitles';
-    track.default = true;
-    return track;
-}
+
+// const findSubtitle = async () => {
+//     // just target 9anime for now
+    
+//     let episode = document.getElementById('episodes-page-1')?.dataset.page
+//     let nameElem  = document.getElementsByClassName('film-name dynamic-name');
+
+//     if (nameElem.length > 0) {
+//         let anime = 
+//     }
+// }
+ 
 
 const execute = async () => {
     let videoPlayers = document.getElementsByTagName('video')
@@ -23,11 +27,7 @@ const execute = async () => {
             uiContainer.setAttribute('id', 'ui');
             player.parentElement?.appendChild(uiContainer);
 
-            let trackElem = await createTrackElement();
-            player.appendChild(trackElem);
-            trackElem.track.mode = "hidden";
-            
-            ReactDOM.render(<SubUI title={document.URL.toString()} track={trackElem}/>, uiContainer);
+            ReactDOM.render(<SubUI title={document.URL.toString()} player={player}/>, uiContainer);
         }
     }
 }

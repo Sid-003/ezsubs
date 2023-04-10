@@ -12,9 +12,9 @@ interface Subtitle {
 }
 
 const padInteger = (n: number, d: number) => n.toLocaleString('en-US', {minimumIntegerDigits: d});
-const padDecimal = (n: number, d: number) => n.toLocaleString('en-US', {minimumFractionDigits: d});
+const padDecimal = (n: number, d: number, fd: number) => n.toLocaleString('en-US', {minimumFractionDigits: fd, minimumIntegerDigits: d});
 
-const formatTimestamp = (ts: Timestamp) => `${padInteger(ts.hour, 2)}:${padInteger(ts.minute, 2)}:${padDecimal(ts.second, 3)}`;
+const formatTimestamp = (ts: Timestamp) => `${padInteger(ts.hour, 2)}:${padInteger(ts.minute, 2)}:${padDecimal(ts.second, 2, 3)}`;
 
 const convertToVtt = (subs: Subtitle[]) => {
     const res = [];
