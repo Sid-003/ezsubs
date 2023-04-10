@@ -62,10 +62,7 @@ const convertSrt = (data: string) => {
     return new Blob([], {type: 'plain/text'});
 }
 
-export const getSubtitle = async (url: string) => {
-    let ext = url.split('.').pop();
-    let data =  await (await fetch(url)).text();
-    
+const processFile = (ext: string, data: string) => {
     switch(ext) {
         case 'ass':
             return convertAss(data);
@@ -74,4 +71,18 @@ export const getSubtitle = async (url: string) => {
         default:
             throw new Error('fuck you');
     }
+}
+
+export const getSubtitleFromFile = async (file: File) => {
+    let ext = file.name.split('.').pop()!;
+    let data =  await file.text();
+
+    return processFile(ext, data);
+}
+
+export const getSubtitle = async (url: string) => {
+    let ext = url.split('.').pop()!;
+    let data =  await (await fetch(url)).text();
+    
+    return processFile(ext, data);
 }
