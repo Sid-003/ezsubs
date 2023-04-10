@@ -34,7 +34,7 @@ const SubUI: React.FC<{title?: string, player: HTMLVideoElement}> = ({title, pla
         { showSubs && 
           <div style={styles.subtitleContainer}>
             {
-              currentSubs.map((sub, i) => (<text key={i} id="subtext">{sub}</text>))
+              currentSubs.map((sub, i) => (<span><text key={i} id="subtext">{sub}</text></span>))
             }
           </div>
         }
@@ -76,6 +76,9 @@ const styles: {[key: string]: React.CSSProperties} = {
   },
   subtitleContainer: {
     alignSelf: 'flex-end',
+    alignItems: 'center',
+    display: 'flex',
+    flexShrink: 0,
     flexDirection: 'column', 
     marginBottom: '8%',
     pointerEvents: 'auto', 

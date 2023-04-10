@@ -25,6 +25,7 @@ const execute = async () => {
         if (player) {
             let uiContainer = document.createElement("div");
             uiContainer.setAttribute('id', 'ui');
+
             player.parentElement?.appendChild(uiContainer);
 
             ReactDOM.render(<SubUI title={document.URL.toString()} player={player}/>, uiContainer);
